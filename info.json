@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "update_url": "https://s.id/neonime-app",
+  "message": {
+    "enable": false,
+    "text": "MAINTENANCE",
+    "closeable": false
+  }
+}
