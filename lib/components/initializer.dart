@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-final appVersion = '1.0.0';
+final appVersion = '1.0.1';
 
 dynamic initializer() async {
   final urlConfig = 'https://gitlab.com/moepoi/neonime-app/-/raw/master/info.json';
