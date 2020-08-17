@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:neonime_app/pages/anime-detail.dart';
+import 'package:neonime_app/pages/batch-detail.dart';
 import 'package:neonime_app/pages/episode-detail.dart';
 import 'package:neonime_app/pages/movie-detail.dart';
 import 'package:neonime_app/scrapper/search.dart';
@@ -57,7 +58,13 @@ class _SearchState extends State<Search> {
                       })
                     ));
                   } else if (data[index]['link'].contains('/batch/')) {
-                    // OTW BIKIN
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => BatchDetail(),
+                      settings: RouteSettings(arguments: {
+                        'title': data[index]['title'],
+                        'url': data[index]['link']
+                      })
+                    ));
                   } else {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) => MovieDetail(),

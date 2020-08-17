@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neonime_app/pages/about.dart';
+import 'package:neonime_app/pages/batch.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -27,7 +28,11 @@ class MainDrawer extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.library_books),
                   title: Text('Batch'),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => Batch(),
+                    ));
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.schedule),
@@ -38,11 +43,9 @@ class MainDrawer extends StatelessWidget {
                   leading: Icon(Icons.info),
                   title: Text('About'),
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => About(),
-                        ));
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => About(),
+                    ));
                   },
                 ),
               ],
