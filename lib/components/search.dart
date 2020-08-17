@@ -39,44 +39,44 @@ class _SearchState extends State<Search> {
           return ListView.builder(
             itemCount: data.length,
             itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  if (data[index]['link'].contains('/tvshows/')) {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => AnimeDetail(),
-                      settings: RouteSettings(arguments: {
-                        'title': data[index]['title'],
-                        'url': data[index]['link']
-                      })
-                    ));
-                  } else if (data[index]['link'].contains('/episode/')) {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => EpisodeDetail(),
-                      settings: RouteSettings(arguments: {
-                        'title': data[index]['title'],
-                        'url': data[index]['link']
-                      })
-                    ));
-                  } else if (data[index]['link'].contains('/batch/')) {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => BatchDetail(),
-                      settings: RouteSettings(arguments: {
-                        'title': data[index]['title'],
-                        'url': data[index]['link']
-                      })
-                    ));
-                  } else {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => MovieDetail(),
-                      settings: RouteSettings(arguments: {
-                        'title': data[index]['title'],
-                        'url': data[index]['link']
-                      })
-                    ));
-                  }
-                },
-                child: Card(
-                  margin: EdgeInsets.all(10),
+              return Card(
+                margin: EdgeInsets.all(10),
+                child: InkWell(
+                  onTap: () {
+                    if (data[index]['link'].contains('/tvshows/')) {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => AnimeDetail(),
+                        settings: RouteSettings(arguments: {
+                          'title': data[index]['title'],
+                          'url': data[index]['link']
+                        })
+                      ));
+                    } else if (data[index]['link'].contains('/episode/')) {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => EpisodeDetail(),
+                        settings: RouteSettings(arguments: {
+                          'title': data[index]['title'],
+                          'url': data[index]['link']
+                        })
+                      ));
+                    } else if (data[index]['link'].contains('/batch/')) {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => BatchDetail(),
+                        settings: RouteSettings(arguments: {
+                          'title': data[index]['title'],
+                          'url': data[index]['link']
+                        })
+                      ));
+                    } else {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => MovieDetail(),
+                        settings: RouteSettings(arguments: {
+                          'title': data[index]['title'],
+                          'url': data[index]['link']
+                        })
+                      ));
+                    }
+                  },
                   child: Column(
                     children: [
                       Container(
