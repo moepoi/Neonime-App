@@ -48,3 +48,6 @@ app.*.map.json
 
 # Key Properties
 key.properties
+
+# Ignore Gradle
+.gradle/
