@@ -7,7 +7,7 @@ Future<dynamic> getNewRelease(String page) async {
     List links = <String>[];
     List titles = <String>[];
     final response = await http
-        .get('https://neonime.moe/episode/page/$page/')
+        .get('https://neonime.vip/episode/page/$page/')
         .catchError((e) {
       print(e);
     });

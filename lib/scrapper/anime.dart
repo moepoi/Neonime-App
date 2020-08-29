@@ -7,7 +7,7 @@ Future<dynamic> getAnime(String page) async {
     List links = <String>[];
     List titles = <String>[];
     final response = await http
-        .get('https://neonime.moe/tvshows/page/$page/')
+        .get('https://neonime.vip/tvshows/page/$page/')
         .catchError((e) {
       print(e);
     });

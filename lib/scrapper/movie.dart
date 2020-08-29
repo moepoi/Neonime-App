@@ -7,7 +7,7 @@ Future<dynamic> getMovie(String page) async {
     List links = <String>[];
     List titles = <String>[];
     final response = await http
-        .get('https://neonime.moe/movies/page/$page/')
+        .get('https://neonime.vip/movies/page/$page/')
         .catchError((e) {
       print(e);
     });

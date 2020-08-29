@@ -6,7 +6,7 @@ Future<dynamic> getSearch(String query) async {
     List<String> images = <String>[];
     List<String> links = <String>[];
     List<String> titles = <String>[];
-    final response = await http.get('https://neonime.moe/?s=$query');
+    final response = await http.get('https://neonime.vip/?s=$query');
     var document = parse(response.body);
     var table = document.getElementsByClassName('item_1 items')[0];
     table.getElementsByTagName('img').forEach((x) {

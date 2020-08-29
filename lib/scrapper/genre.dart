@@ -7,7 +7,7 @@ Future<dynamic> getGenre(String type, String page) async {
     List links = <String>[];
     List titles = <String>[];
     final response = await http
-        .get('https://neonime.moe/tvshows-genre/$type/page/$page/')
+        .get('https://neonime.vip/tvshows-genre/$type/page/$page/')
         .catchError((e) {
       print(e);
     });

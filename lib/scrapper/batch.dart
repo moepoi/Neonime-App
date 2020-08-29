@@ -6,7 +6,7 @@ Future<dynamic> getBatch(String page) async {
     List<String> images = <String>[];
     List<String> links = <String>[];
     List<String> titles = <String>[];
-    final response = await http.get('https://neonime.moe/batch/page/$page/');
+    final response = await http.get('https://neonime.vip/batch/page/$page/');
     var document = parse(response.body);
     var items = document.getElementsByClassName('item');
     items.forEach((item) {
