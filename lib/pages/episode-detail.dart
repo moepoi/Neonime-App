@@ -4,14 +4,39 @@ import 'package:flutter/cupertino.dart';
 import 'package:async_loader/async_loader.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:neonime_app/scrapper/new-release.dart';
-
+import 'package:flutter/services.dart';
 import 'anime-detail.dart';
 
 // ignore: must_be_immutable
-class EpisodeDetail extends StatelessWidget {
+class EpisodeDetail extends StatefulWidget {
+  @override
+  _EpisodeDetailState createState() => _EpisodeDetailState();
+}
+
+class _EpisodeDetailState extends State<EpisodeDetail> {
   final GlobalKey<AsyncLoaderState> asyncLoaderState =
       new GlobalKey<AsyncLoaderState>();
   InAppWebViewController webView;
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
+  void dispose() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
