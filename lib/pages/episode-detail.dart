@@ -58,6 +58,8 @@ class _EpisodeDetailState extends State<EpisodeDetail> {
               return Text(error.toString());
             },
             renderSuccess: ({data}) {
+              var currentServer = data['stream_url'][0];
+              var currentServerName = data['stream_name'][0];
               return Center(
                 child: ListView(
                   children: [
@@ -65,7 +67,7 @@ class _EpisodeDetailState extends State<EpisodeDetail> {
                       height: 200,
                       child: Center(
                         child: InAppWebView(
-                          initialUrl: data['stream_url'][0],
+                          initialUrl: currentServer,
                           onWebViewCreated:
                               (InAppWebViewController controller) {
                             webView = controller;
@@ -74,6 +76,44 @@ class _EpisodeDetailState extends State<EpisodeDetail> {
                               android: AndroidInAppWebViewOptions(
                                   useWideViewPort: false)),
                         ),
+                      ),
+                    ),
+                    Card(
+                      child: Row(
+                        children: [
+                          Flexible(
+                            flex: 3,
+                            child: Container(
+                              alignment: Alignment.centerRight,
+                              margin: EdgeInsets.all(10),
+                              child: Text('Select Server', style: TextStyle(fontSize: 20),),
+                            ),
+                          ),
+                          Flexible(
+                            flex: 3,
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              margin: EdgeInsets.all(10),
+                              child: DropdownButton(
+                                value: currentServerName,
+                                onChanged: (newValue){
+                                  setState(() {
+                                    int index = data['stream_name'].indexOf(newValue);
+                                    currentServer = data['stream_url'][index];
+                                    currentServerName = data['stream_name'][index];
+                                  });
+                                },
+                                items: data['stream_name'].map<DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    child: Text(value),
+                                    value: value,
+                                  );
+                                }).toList(),
+                              ),
+                              // child: Text('test'),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                     Card(
