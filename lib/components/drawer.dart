@@ -36,7 +36,12 @@ class MainDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Icon(Icons.schedule),
-                  title: Text('Jadwal'),
+                  title: Text('Schedule'),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('Settings'),
                   onTap: () {},
                 ),
                 ListTile(
