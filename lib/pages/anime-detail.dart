@@ -30,79 +30,77 @@ class AnimeDetail extends StatelessWidget {
               return Text(error.toString());
             },
             renderSuccess: ({data}) {
-              return Center(
-                  child: ListView(
-                children: [
-                  Row(
-                    children: [
-                      Flexible(
-                        flex: 2,
-                        child: Container(
-                          margin: EdgeInsets.all(8),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: CachedNetworkImage(
-                              imageUrl: data['image'],
-                              placeholder: (context, url) => CupertinoActivityIndicator(),
-                              errorWidget: (context, url, error) => Image.asset('lib/assets/image-error.jpg'),
-                              fadeOutDuration: Duration(milliseconds: 5),
-                              imageBuilder: (context, imageProvider) => Container(
-                                width: 120,
-                                height: 160,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: imageProvider,
-                                    fit: BoxFit.cover
-                                  ),
-                                ),
+              var allWidgets = [
+                Row(
+                  children: [
+                    Flexible(
+                      flex: 2,
+                      child: Container(
+                        margin: EdgeInsets.all(8),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: CachedNetworkImage(
+                            imageUrl: data['image'],
+                            placeholder: (context, url) =>
+                                CupertinoActivityIndicator(),
+                            errorWidget: (context, url, error) =>
+                                Image.asset('lib/assets/image-error.jpg'),
+                            fadeOutDuration: Duration(milliseconds: 5),
+                            imageBuilder: (context, imageProvider) => Container(
+                              width: 120,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: imageProvider, fit: BoxFit.cover),
                               ),
                             ),
                           ),
                         ),
                       ),
-                      Flexible(
-                        flex: 4,
-                        child: Container(
-                            margin: EdgeInsets.all(8),
-                            child: Text(
-                              data['title'],
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600),
-                            )),
-                      )
-                    ],
-                  ),
-                  Card(
-                    child: Container(
-                      margin: EdgeInsets.all(8),
-                      child: Text(data['description']),
                     ),
+                    Flexible(
+                      flex: 4,
+                      child: Container(
+                          margin: EdgeInsets.all(8),
+                          child: Text(
+                            data['title'],
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                          )),
+                    )
+                  ],
+                ),
+                Card(
+                  child: Container(
+                    margin: EdgeInsets.all(8),
+                    child: Text(data['description']),
                   ),
+                ),
+              ];
+              final totalEps = data['episode_title'].length;
+              for (var x=0; x < totalEps; x++) {
+                allWidgets.add(
                   Container(
-                    height: 542,
                     padding: EdgeInsets.all(8),
-                    child: ListView.builder(
-                        itemCount: data['episode_title'].length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            padding: EdgeInsets.all(8),
-                            child: CupertinoButton.filled(
-                              child: Text(data['episode_title'][index]),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => EpisodeDetail(),
-                                        settings: RouteSettings(arguments: {
-                                          'title': data['episode_title'][index],
-                                          'url': data['episode_url'][index]
-                                        })));
-                              },
-                            ),
-                          );
-                        }),
-                  ),
-                ],
+                    child: CupertinoButton.filled(
+                      child: Text(data['episode_title'][x]),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EpisodeDetail(),
+                                settings: RouteSettings(arguments: {
+                                  'title': data['episode_title'][x],
+                                  'url': data['episode_url'][x]
+                                })));
+                      },
+                    )
+                  )
+                );
+              }
+              return Center(
+                  child: ListView(
+                children: allWidgets
               ));
             }),
       ),
