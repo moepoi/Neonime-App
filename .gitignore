@@ -46,6 +46,9 @@ app.*.map.json
 # IDE Configuration
 .vscode/
 
+# Workspace
+*.code-workspace
+
 # Key Properties
 key.properties
 
