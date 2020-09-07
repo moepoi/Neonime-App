@@ -56,6 +56,7 @@ flutter:
     - lib/assets/splash.webp
     - lib/assets/drawer-top.webp
     - lib/assets/drawer-bottom.webp
+    - lib/assets/search.webp
     - lib/assets/creator.webp
     - lib/assets/image-error.webp
   # An image asset can refer to one or more resolution-specific "variants", see

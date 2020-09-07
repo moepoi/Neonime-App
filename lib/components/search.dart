@@ -24,7 +24,17 @@ class _SearchState extends State<Search> {
   }
 
   Widget startSearch() {
-    return Text('SEARCH RESULT WILL BE HERE !!!');
+    return Center(
+      child: Container(
+        margin: EdgeInsets.only(top: 60, bottom: 60, left: 45, right: 45),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('lib/assets/search.webp'),
+            fit: BoxFit.contain
+          )
+        ),
+      ),
+    );
   }
 
   Widget loadSearch(String query) {
