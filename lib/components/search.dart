@@ -144,6 +144,7 @@ class _SearchState extends State<Search> {
             hintStyle: TextStyle(
               color: Colors.white,
             ),
+            border: InputBorder.none
           ),
           onEditingComplete: () {
             setState(() {
