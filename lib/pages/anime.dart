@@ -87,7 +87,7 @@ class _AnimeState extends State<Anime>
                           child: CachedNetworkImage(
                             imageUrl: listData[index]['image'],
                             placeholder: (context, url) => CupertinoActivityIndicator(),
-                            errorWidget: (context, url, error) => Image.asset('lib/assets/image-error.jpg'),
+                            errorWidget: (context, url, error) => Image.asset('lib/assets/image-error.webp'),
                             fadeOutDuration: Duration(milliseconds: 5),
                             imageBuilder: (context, imageProvider) => Container(
                               width: 400,

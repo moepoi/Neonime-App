@@ -53,11 +53,11 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/assets/splash.png
-    - lib/assets/drawer-top.jpg
-    - lib/assets/drawer-bottom.png
-    - lib/assets/creator.jpg
-    - lib/assets/image-error.jpg
+    - lib/assets/splash.webp
+    - lib/assets/drawer-top.webp
+    - lib/assets/drawer-bottom.webp
+    - lib/assets/creator.webp
+    - lib/assets/image-error.webp
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

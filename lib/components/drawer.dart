@@ -16,7 +16,7 @@ class MainDrawer extends StatelessWidget {
               // color: Colors.amberAccent,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('lib/assets/drawer-top.jpg'),
+                    image: AssetImage('lib/assets/drawer-top.webp'),
                     fit: BoxFit.fill),
               ),
             ),
@@ -61,7 +61,7 @@ class MainDrawer extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('lib/assets/drawer-bottom.png'))),
+                        image: AssetImage('lib/assets/drawer-bottom.webp'))),
               ))
         ],
       )),

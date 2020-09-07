@@ -30,7 +30,7 @@ class _AboutState extends State<About> {
               width: 160,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('lib/assets/creator.jpg'),
+                    image: AssetImage('lib/assets/creator.webp'),
                     fit: BoxFit.scaleDown
                 ),
               ),

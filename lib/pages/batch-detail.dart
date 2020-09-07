@@ -39,7 +39,7 @@ class BatchDetail extends StatelessWidget {
                       child: CachedNetworkImage(
                         imageUrl: data['image'],
                         placeholder: (context, url) => CupertinoActivityIndicator(),
-                        errorWidget: (context, url, error) => Image.asset('lib/assets/image-error.jpg'),
+                        errorWidget: (context, url, error) => Image.asset('lib/assets/image-error.webp'),
                         fadeOutDuration: Duration(milliseconds: 5),
                         imageBuilder: (context, imageProvider) => Container(
                           width: 200,
@@ -83,7 +83,7 @@ class BatchDetail extends StatelessWidget {
                                   child: CachedNetworkImage(
                                     imageUrl: data['image'],
                                     placeholder: (context, url) => CupertinoActivityIndicator(),
-                                    errorWidget: (context, url, error) => Image.asset('lib/assets/image-error.jpg'),
+                                    errorWidget: (context, url, error) => Image.asset('lib/assets/image-error.webp'),
                                     fadeOutDuration: Duration(milliseconds: 5),
                                     imageBuilder: (context, imageProvider) => Container(
                                       width: 120,

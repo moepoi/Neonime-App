@@ -44,7 +44,7 @@ class AnimeDetail extends StatelessWidget {
                             placeholder: (context, url) =>
                                 CupertinoActivityIndicator(),
                             errorWidget: (context, url, error) =>
-                                Image.asset('lib/assets/image-error.jpg'),
+                                Image.asset('lib/assets/image-error.webp'),
                             fadeOutDuration: Duration(milliseconds: 5),
                             imageBuilder: (context, imageProvider) => Container(
                               width: 120,
