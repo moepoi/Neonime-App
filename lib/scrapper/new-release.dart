@@ -45,6 +45,7 @@ Future<dynamic> getEpisodeDetail(String url) async {
   try {
     List<String> streamUrls = <String>[];
     List<String> downloadUrls = <String>[];
+    List<String> description = <String>[];
     final response = await http.get(url);
     var document = parse(response.body);
     document.getElementsByTagName('iframe').forEach((x) {
@@ -59,15 +60,14 @@ Future<dynamic> getEpisodeDetail(String url) async {
     var detailUrl = imageBox.getElementsByTagName('a')[0].attributes['href'];
     var contentBox = document.getElementsByClassName('contenidotv')[0];
     var title = contentBox.getElementsByTagName('h2')[0].text;
-    var description = '';
     contentBox.getElementsByTagName('p').forEach((x) {
-      description += x.text + '\n\n';
+      description.add(x.text);
     });
     var rmv = title.split(' Episode ');
     title = rmv[0].replaceAll('Sinopsis dari anime ', '');
     final data = {
       'title': title,
-      'description': description,
+      'description': description.join('\n\n'),
       'image': image.replaceAll(new RegExp(r'\/w(\d\d\d)\/'), '/original/'),
       'detail_url': detailUrl,
       'stream_url': streamUrls,
