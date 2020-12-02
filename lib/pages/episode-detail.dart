@@ -68,6 +68,9 @@ class _EpisodeDetailState extends State<EpisodeDetail> {
                       child: Center(
                         child: InAppWebView(
                           initialUrl: currentServer,
+                          initialHeaders: {
+                            'Referer': postUrl
+                          },
                           onWebViewCreated:
                               (InAppWebViewController controller) {
                             webView = controller;
